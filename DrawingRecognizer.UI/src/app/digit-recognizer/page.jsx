@@ -3,12 +3,13 @@ import Header from "../components/Layout/Header";
 import ProcessDrawBoard from "../components/DrawBoard/ProcessDrawBoard";
 import Digit from "./Digit";
 import BoxSection from "../components/Layout/BoxSection";
+import Loader from "../components/Layout/Loader";
 
 import { base64ToBlob } from "../utils/imgUtils";
 import useFetch from "../hooks/useFetch";
 
 export default function DigitRecognizer() {
-  const [predictDigit, data] = useFetch("http://127.0.0.1:8000/predict-digit", {
+  const [predictDigit, data, loading] = useFetch("http://127.0.0.1:8000/predict-digit", {
     method: "POST",
     headers: {
       "Accept": "application/json",
@@ -33,7 +34,8 @@ export default function DigitRecognizer() {
       <BoxSection margin="20px 400px" padding="40px 0">
         <ProcessDrawBoard name="Predict Digit" width={240} height={240} lineWidth={12} onProcessImage={handleOnPredict} />
       </BoxSection>
-      {data && <Digit digit={data.digit} />}
+      {loading && <Loader />}
+      {data && !loading && <Digit digit={data.digit} />}
     </>
   );
 }

@@ -7,11 +7,10 @@ import Container from "../components/Layout/Container";
 
 import { base64ToBlob } from "../utils/imgUtils";
 import useFetch from "../hooks/useFetch";
+import Loader from "../components/Layout/Loader";
 
 export default function SketchDescriber() {
-    const [guess, setGuess] = useState(null);
-
-    const [ predictImg, data ] = useFetch("http://127.0.0.1:8000/predict-img", {
+    const [predictImg, data, loading] = useFetch("http://127.0.0.1:8000/predict-img", {
         method: "POST",
         headers: {
             "Accept": "application/json",
@@ -45,12 +44,13 @@ export default function SketchDescriber() {
                         onProcessImage={handleGuess} />
                 </Container>
             </BoxSection>
-            {data &&
-            <BoxSection margin="20px 200px" padding="40px">
-                <Container>
-                     <p>{data.caption}</p>
-                </Container>
-            </BoxSection>}
+            {loading && <Loader />}
+            {data && !loading &&
+                <BoxSection margin="20px 200px" padding="40px">
+                    <Container>
+                        <p>{data.caption}</p>
+                    </Container>
+                </BoxSection>}
         </>
     )
 }
