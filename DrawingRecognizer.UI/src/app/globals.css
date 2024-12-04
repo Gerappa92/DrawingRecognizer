@@ -1,0 +1,61 @@
+/* Global styles for the entire app */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212; /* Dark background */
+  color: #e0e0e0; /* Light text */
+  font-family: 'Parkinsans', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  min-height: 60vh;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #6A0DAD;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+select {
+  padding: 10px 20px;
+  background-color: #6A0DAD; /* Purple color to match the button */
+  color: #FFFFFF; /* White text for readability */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  appearance: none; /* Removes default browser styles */
+  outline: none; /* Ensures focus state doesn't break the design */
+  text-align: center;
+}
+
+select:hover {
+  background-color: #7E3BAD; /* Slightly lighter purple for hover effect */
+}
+
+select:focus {
+  box-shadow: 0 0 5px #7E3BAD; /* Subtle focus outline for accessibility */
+}
+
+select option {
+  background-color: #6A0DAD; /* Purple background */
+  color: #FFFFFF; /* White text */
+  font-size: 16px; /* Match dropdown font size */
+  padding: 10px; /* Adds padding for better readability */
+  text-align: left; /* Align text to the left */
+}

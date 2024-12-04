@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text */
+    margin: 20px 200px;
+    padding: 40px 320px; /* Extra padding to make the content area spacious */
+    background: linear-gradient(135deg, #2c2c2c, #121212); /* Subtle gradient to distinguish content */
+    border-radius: 10px; /* Rounded corners for content */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow to lift content */
+  }
+
+.question {
+    font-size: 2.5rem; /* Subtitle font size */
+}
+
+.digit {
+    font-size: 10rem; /* Larger title font size */
+    font-weight: 700; /* Bold weight for the title */
+}

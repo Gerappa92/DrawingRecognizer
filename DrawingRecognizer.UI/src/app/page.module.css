@@ -1,0 +1,32 @@
+.homePage {
+  padding: 80px 20px; /* Increased padding for more space around content */
+  text-align: center;
+}
+
+.content {
+  margin-top: 40px; /* Increased space between sections */
+  padding: 40px 320px; /* Extra padding to make the content area spacious */
+  background: linear-gradient(135deg, #2c2c2c, #121212); /* Subtle gradient to distinguish content */
+  border-radius: 10px; /* Rounded corners for content */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow to lift content */
+}
+
+.content p {
+  margin-bottom: 130px;
+}
+
+.startButton {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #6a0dad, #d511b1); /* Gradient from purple to a darker purple */
+  color: white;
+  border: none;
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.startButton:hover {
+  background: linear-gradient(135deg, #5a0c8f, #ad0d90); /* Reverse gradient on hover */
+}

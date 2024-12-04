@@ -1,0 +1,14 @@
+.footer {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text color */
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px; /* Space between content and footer */
+    border-top: 1px solid #2c2c2c; /* Light top border for distinction */
+  }
+  
+  .footer p {
+    font-size: 1rem; /* Standard font size */
+    margin: 0; /* Remove default margin */
+  }
+  

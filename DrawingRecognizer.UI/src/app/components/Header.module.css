@@ -1,0 +1,23 @@
+.header {
+    background-color: #121212; /* Dark background */
+    padding: 40px 20px; /* Padding for spacing */
+    border-radius: 0 0 12px 12px; /* Optional: rounded corners */
+    text-align: center; /* Center the text */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    margin-bottom: 30px; /* Space below the header */
+    font-family: 'Pacifico';
+  }
+  
+  .header h1 {
+    font-size: 2.5rem; /* Larger title font size */
+    color: #fff; /* White text for the title */
+    font-weight: 700; /* Bold weight for the title */
+    margin-bottom: 10px; /* Space below the title */
+  }
+  
+  .header p {
+    font-size: 1.2rem; /* Subtitle font size */
+    color: #e0e0e0; /* Lighter text for subtitle */
+    margin-top: 0; /* Remove default margin-top */
+  }
+  
