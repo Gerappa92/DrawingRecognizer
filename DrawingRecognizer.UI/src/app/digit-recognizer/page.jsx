@@ -1,36 +1,27 @@
 "use client";
 import Header from "../components/Layout/Header";
 import ProcessDrawBoard from "../components/DrawBoard/ProcessDrawBoard";
-import { useState } from "react";
 import Digit from "./Digit";
 import BoxSection from "../components/Layout/BoxSection";
 
-export default function DigitRecognizer() {
-  const [digit, setDigit] = useState(null)
+import { base64ToBlob } from "../utils/imgUtils";
+import useFetch from "../hooks/useFetch";
 
-  const handleOnPredict = async  (imageData) => {
-        // Assuming imageData is a base64 string.
-        const blob = base64ToBlob(imageData, "image/png");
-        const formData = new FormData();
-        formData.append("file", blob, "image.png");
-        try {
-            const response = await fetch("http://127.0.0.1:8000/predict-digit", {
-              method: "POST",
-              body: formData,
-              headers: {
-                "Accept": "application/json",
-              },
-            });
-      
-            if (!response.ok) {
-              throw new Error("Network response was not ok");
-            }
-      
-            const data = await response.json();
-            setDigit(data.digit);
-          } catch (error) {
-            console.error("There has been a problem with your fetch operation:", error);
-          }
+export default function DigitRecognizer() {
+  const [predictDigit, data] = useFetch("http://127.0.0.1:8000/predict-digit", {
+    method: "POST",
+    headers: {
+      "Accept": "application/json",
+    },
+  });
+
+  const handleOnPredict = async (imageData) => {
+    // Assuming imageData is a base64 string.
+    const blob = base64ToBlob(imageData, "image/png");
+    const formData = new FormData();
+    formData.append("file", blob, "image.png");
+
+    await predictDigit(formData);
   };
 
   return (
@@ -42,19 +33,7 @@ export default function DigitRecognizer() {
       <BoxSection margin="20px 400px" padding="40px 0">
         <ProcessDrawBoard name="Predict Digit" width={240} height={240} lineWidth={12} onProcessImage={handleOnPredict} />
       </BoxSection>
-      {digit && <Digit digit={digit} />}
+      {data && <Digit digit={data.digit} />}
     </>
   );
 }
-
-function base64ToBlob(base64, contentType) {
-    const byteCharacters = atob(base64.split(",")[1]);
-    const byteNumbers = new Array(byteCharacters.length);
-  
-    for (let i = 0; i < byteCharacters.length; i++) {
-      byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-  
-    const byteArray = new Uint8Array(byteNumbers);
-    return new Blob([byteArray], { type: contentType });
-  }

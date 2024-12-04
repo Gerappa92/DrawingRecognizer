@@ -48,7 +48,12 @@ export default function Redraw() {
       <BoxSection margin="20px 200px" padding="40px">
         <Container>
           <Select options={genPromptsOptions} onChange={handleGenPropmtChange} />
-          <ProcessDrawBoard name="Redraw" width={canvasWidth} height={canvasHeight} lineWidth={25} onProcessImage={handleRedraw} />
+          <ProcessDrawBoard 
+            name="Redraw" 
+            width={canvasWidth} 
+            height={canvasHeight} 
+            lineWidth={25} 
+            onProcessImage={handleRedraw} />
         </Container>
       </BoxSection>
 
