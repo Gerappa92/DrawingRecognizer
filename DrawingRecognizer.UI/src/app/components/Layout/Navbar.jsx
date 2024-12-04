@@ -6,6 +6,7 @@ const Navbar = () => (
     <ul className={styles.navList}>
       <li><Link href="/" className={styles.navItem}>Home</Link></li>
       <li><Link href="/digit-recognizer" className={styles.navItem}>Digits</Link></li>
+      <li><Link href="/sketch-describer" className={styles.navItem}>Sketch</Link></li>
       <li><Link href="/redraw" className={styles.navItem}>Redraw</Link></li>
       <li><Link href="/gallery" className={styles.navItem}>Gallery</Link></li>
       <li><Link href="/about" className={styles.navItem}>About</Link></li>

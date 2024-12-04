@@ -1,9 +1,11 @@
 from typing import Union
 
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 
 from digit_predictor_helper import predict;
+from img_prediction import generate_caption;
+
 
 app = FastAPI()
 
@@ -17,6 +19,11 @@ app.add_middleware(
 )
 
 @app.post("/predict-digit")
-async def read_item(file: UploadFile):
+async def predict_digit(file: UploadFile):
     digit_prediction = predict(file.file)
     return {"digit": digit_prediction}
+
+@app.post("/predict-img")
+async def predict_img(file: UploadFile):
+    caption = generate_caption(file.file)
+    return {"caption": caption}
