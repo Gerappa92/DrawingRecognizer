@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import DrawBoard from "./DrawBoard";
+import styles from "./ProcessDrawBoard.module.css"
+import Container from "../Layout/Container";
 
 export function ProcessDrawBoard({name, onProcessImage, width=800, height=600, lineWidth=5}) {
   const drawBoardRef = useRef(null);
@@ -14,31 +16,15 @@ export function ProcessDrawBoard({name, onProcessImage, width=800, height=600, l
   };
 
   return (
-    <div style={styles.container}>
+    <Container>
       <DrawBoard ref={drawBoardRef} width={width} height={height} lineWidth={lineWidth} />
-      <div style={styles.buttonContainer}>
+      <div className={styles.buttonContainer}>
         {" "}
         <button onClick={clearBoard}>Clear Board</button>
         <button onClick={processImage}>{name}</button>
       </div>
-    </div>
+    </Container>
   );
 }
-
-const styles = {
-  container: {
-    display: "flex",
-    flexDirection: "column", // Stack items vertically
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonContainer: {
-    marginTop: "20px",
-    display: "flex",
-    gap: "10px",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
 
 export default ProcessDrawBoard;

@@ -1,9 +1,9 @@
 "use client";
-import Header from "../components/Header";
-import DrawBoard from "../components/DrawBoard/DrawBoard";
+import Header from "../components/Layout/Header";
 import ProcessDrawBoard from "../components/DrawBoard/ProcessDrawBoard";
 import { useState } from "react";
 import Digit from "./Digit";
+import BoxSection from "../components/Layout/BoxSection";
 
 export default function DigitRecognizer() {
   const [digit, setDigit] = useState(null)
@@ -39,7 +39,9 @@ export default function DigitRecognizer() {
         title="Digit Recognizer"
         subtitle="Draw a number and let the AI Agent guess what it is"
       />
-      <ProcessDrawBoard name="Predict Digit" width={240} height={240} lineWidth={12} onProcessImage={handleOnPredict} />
+      <BoxSection margin="20px 400px" padding="40px 0">
+        <ProcessDrawBoard name="Predict Digit" width={240} height={240} lineWidth={12} onProcessImage={handleOnPredict} />
+      </BoxSection>
       {digit && <Digit digit={digit} />}
     </>
   );

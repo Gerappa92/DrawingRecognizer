@@ -1,0 +1,5 @@
+.boxSection {
+    background: linear-gradient(135deg, #2c2c2c, #121212); /* Subtle gradient to distinguish content */
+    border-radius: 10px; /* Rounded corners for content */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow to lift content */
+}
