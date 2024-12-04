@@ -39,7 +39,7 @@ export default function DigitRecognizer() {
         title="Digit Recognizer"
         subtitle="Draw a number and let the AI Agent guess what it is"
       />
-      <ProcessDrawBoard name="Predict Digit" onProcessImage={handleOnPredict} />
+      <ProcessDrawBoard name="Predict Digit" width={240} height={240} lineWidth={12} onProcessImage={handleOnPredict} />
       {digit && <Digit digit={digit} />}
     </>
   );

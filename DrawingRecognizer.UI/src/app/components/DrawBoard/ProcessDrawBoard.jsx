@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import DrawBoard from "./DrawBoard";
 
-export function ProcessDrawBoard({name, onProcessImage}) {
+export function ProcessDrawBoard({name, onProcessImage, width=800, height=600, lineWidth=5}) {
   const drawBoardRef = useRef(null);
 
   const clearBoard = () => {
@@ -15,7 +15,7 @@ export function ProcessDrawBoard({name, onProcessImage}) {
 
   return (
     <div style={styles.container}>
-      <DrawBoard ref={drawBoardRef} width={800} height={600} />
+      <DrawBoard ref={drawBoardRef} width={width} height={height} lineWidth={lineWidth} />
       <div style={styles.buttonContainer}>
         {" "}
         <button onClick={clearBoard}>Clear Board</button>
@@ -33,6 +33,7 @@ const styles = {
     alignItems: "center",
   },
   buttonContainer: {
+    marginTop: "20px",
     display: "flex",
     gap: "10px",
     justifyContent: "center",

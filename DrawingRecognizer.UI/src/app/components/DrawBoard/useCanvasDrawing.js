@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const useCanvasDrawing = (canvasRef, width, height) => {
+const useCanvasDrawing = (canvasRef, lineWidth = 5) => {
   const [isDrawing, setIsDrawing] = useState(false);
 
   const getX = (event) =>
@@ -44,7 +44,7 @@ const useCanvasDrawing = (canvasRef, width, height) => {
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.lineWidth = 25;
+    ctx.lineWidth = lineWidth;
     ctx.lineCap = "round";
     ctx.strokeStyle = "#FFFFFF";
   }, [canvasRef]);

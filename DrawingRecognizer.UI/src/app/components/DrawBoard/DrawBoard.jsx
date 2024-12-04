@@ -1,12 +1,11 @@
 import React, { forwardRef, useRef, useImperativeHandle } from "react";
 import useCanvasDrawing from "./useCanvasDrawing";
 
-const DrawBoard = forwardRef(function DrawBoard({ width, height }, ref){
+const DrawBoard = forwardRef(function DrawBoard({ width, height, lineWidth }, ref){
   const canvasRef = useRef(null);
   const { startDrawing, draw, stopDrawing } = useCanvasDrawing(
     canvasRef,
-    width,
-    height
+    lineWidth
   );
 
   useImperativeHandle(ref, () => ({
@@ -46,8 +45,7 @@ const DrawBoard = forwardRef(function DrawBoard({ width, height }, ref){
 const styles = {
   canvas: {
     border: "2px solid #6A0DAD",
-    cursor: "crosshair",
-    marginBottom: "20px",
+    cursor: "crosshair"
   },
 };
 
