@@ -7,6 +7,7 @@ import Loader from "../components/Layout/Loader";
 
 import { base64ToBlob } from "../utils/imgUtils";
 import useFetch from "../hooks/useFetch";
+import Panel from "../components/Layout/Panel";
 
 export default function DigitRecognizer() {
   const [predictDigit, data, loading] = useFetch("http://127.0.0.1:8000/predict-digit", {
@@ -36,6 +37,8 @@ export default function DigitRecognizer() {
       </BoxSection>
       {loading && <Loader />}
       {data && !loading && <Digit digit={data.digit} />}
+
+      <Panel title="What is going on here?">Here goes some long explanation.</Panel>
     </>
   );
 }

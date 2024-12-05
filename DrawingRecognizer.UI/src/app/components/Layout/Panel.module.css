@@ -1,0 +1,37 @@
+/* Panel.module.css */
+.panel {
+    background: #121212;
+    color: #e0e0e0;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Soft shadow to lift content */
+    background: linear-gradient(135deg, #2c2c2c, #121212); /* Subtle gradient to distinguish content */
+  }
+  
+  .panelHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #6A0DAD;
+    padding-bottom: 10px;
+  }
+  
+  .panelContent {
+    margin-top: 10px;
+    display: none;
+  }
+  
+  .panelContentExpanded {
+    display: block;
+  }
+  
+  .arrow {
+    transform: rotate(0);
+    transition: transform 0.3s;
+  }
+  
+  .arrowExpanded {
+    transform: rotate(90deg);
+  }

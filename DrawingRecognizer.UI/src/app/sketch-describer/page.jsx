@@ -8,6 +8,7 @@ import Container from "../components/Layout/Container";
 import { base64ToBlob } from "../utils/imgUtils";
 import useFetch from "../hooks/useFetch";
 import Loader from "../components/Layout/Loader";
+import Panel from "../components/Layout/Panel";
 
 export default function SketchDescriber() {
     const [predictImg, data, loading] = useFetch("http://127.0.0.1:8000/predict-img", {
@@ -48,9 +49,12 @@ export default function SketchDescriber() {
             {data && !loading &&
                 <BoxSection margin="20px 200px" padding="40px">
                     <Container>
-                        <p>{data.caption}</p>
+                        <h1>Is it</h1>
+                        <p>{data.caption}?</p>
                     </Container>
                 </BoxSection>}
+
+                <Panel title="What is going on here?">Here goes some long explanation.</Panel>
         </>
     )
 }
